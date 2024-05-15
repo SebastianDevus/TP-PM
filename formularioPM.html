@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Formulário LOL</title>
+</head>
+<body>
+    <div class="textoCentralizado">
+        <h1>Formulário de LOL</h1>
+        <p>Estamos coletando informações sobre jogadores do famoso League of Legends, você gostaria de participar?</p>
+    </div>
+    
+    <form action="obrigado.html" id="form">
+        <fieldset>
+            <div class="flexHorizontal">
+                <div class="questao">                    
+                    <label for="inputNome">Qual é o seu Riot ID? </label>
+                    <input type="text" id="inputNome" name="riotID" pattern="[\w.\-]{3,16}[#][a-zA-Z0-9]{3,5}"
+                    placeholder="Ex: Joaozinho#BR01" required />
+                </div>
+
+                <div class="questao">
+                    <label for="inputComeco">Quando você começou a jogar?</label>
+                    <input type="date" name="dataComecou" id="inputComeco" min="2009-10-27" required>
+                </div>
+            </div>
+            
+            <div class="flexHorizontal">                
+                <div class="questao">
+                    <label for="selectRota">Qual é a sua rota principal? </label>
+                    <select name="rota" id="selectRota" required>
+                        <option value="t">Top (Topo)</option>
+                        <option value="j">Jungle (Selva)</option>
+                        <option value="m">Mid (Meio)</option>
+                        <option value="a">ADC (Atirador)</option>
+                        <option value="s">Sup (Suporte)</option>
+                        <option value="n">Nenhuma/Todas</option>
+                    </select>            
+                </div>            
+
+                <div class="questao">
+                    <label for="inputMain">Qual o seu main (campeão mais jogado)?</label>
+                    <input type="search" name="campeaoMain" id="inputMain" list="datalistCampeoes" required>
+                    <datalist id="datalistCampeoes"></datalist>
+                </div>
+            </div>
+
+            <div class="flexHorizontal">
+                <div class="questao">
+                    <label for="inputNivel">Qual é o nível da sua conta?</label>
+                    <input type="number" name="nivelConta" id="inputNivel" required>
+                </div>
+
+                <div class="questao">
+                    <label>Você joga partidas ranqueadas?</label>
+                    <label class="labelInline">
+                        <input type="radio" name="ranqueada" id="ranqueadaSim" value="1" checked>
+                        Sim
+                    </label>
+
+                    <label class="labelInline">
+                        <input type="radio" name="ranqueada" id="ranqueadaNao" value="2">
+                        Não
+                    </label>
+                </div>
+            </div>
+
+            <div class="flexHorizontal">
+                <div class="questao">                    
+                    <label>Quais modos de jogo você joga?</label>
+
+                        <label class="labelNaEsquerda">
+                            <input type="checkbox" name="summonersRift">
+                                Summoner's Rift
+                        </label>
+
+                        <label class="labelNaEsquerda">
+                            <input type="checkbox" name="aram">
+                            ARAM
+                        </label>
+                    
+                        <label class="labelNaEsquerda">
+                            <input type="checkbox" name="modosRotativos">
+                            Modos Rotativos
+                        </label>
+                </div>
+                
+                <div class="questao">
+                    <label for="areaOpiniao">Alguma opinião que deseja compartilhar? (opcional)</label>
+                    <textarea name="opiniao" id="areaOpiniao" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="flexHorizontal">            
+            <div>    
+                <button type="submit">Concluir formulário</button>
+            </div>
+
+            <div>
+                <button type="reset">Limpar</button>
+            </div>
+        </div>
+            
+    </form>
+</body>
+</html>
