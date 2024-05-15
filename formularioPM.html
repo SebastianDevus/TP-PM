@@ -56,15 +56,18 @@
 
                 <div class="questao">
                     <label>Você joga partidas ranqueadas?</label>
-                    <label class="labelInline">
-                        <input type="radio" name="ranqueada" id="ranqueadaSim" value="1" checked>
-                        Sim
-                    </label>
-
-                    <label class="labelInline">
-                        <input type="radio" name="ranqueada" id="ranqueadaNao" value="2">
-                        Não
-                    </label>
+                    <select name="rota" id="selectRota" required>
+                        <option value="f">Top (Topo)</option>
+                        <option value="b">Jungle (Selva)</option>
+                        <option value="pr">Mid (Meio)</option>
+                        <option value="o">ADC (Atirador)</option>
+                        <option value="pl">Sup (Suporte)</option>
+                        <option value="e">Nenhuma/Todas</option>
+                        <option value="di">Top (Topo)</option>
+                        <option value="m">Jungle (Selva)</option>
+                        <option value="gm">Mid (Meio)</option>
+                        <option value="df">ADC (Atirador)</option>
+                    </select>     
                 </div>
             </div>
 

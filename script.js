@@ -16,12 +16,9 @@ const campeoes = [
     "Volibear", "Warwick", "Wukong", "Xayah", "Xerath", "Xin Zhao", "Yasuo", "Yone", "Yorick", "Yuumi",
     "Zac", "Zed", "Zeri", "Ziggs", "Zilean", "Zoe", "Zyra"
 ];
-
 const datalist = document.getElementById("datalistCampeoes");
 const form = document.getElementById("form");
 const inputNome = document.getElementById("inputNome");
-
-// inputNome.oninvalid = 
 
 campeoes.forEach(champion => {
     const option = document.createElement("option");
