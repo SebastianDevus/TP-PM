@@ -1,5 +1,5 @@
 const campeoes = [
-    "Aatrox", "Ahri", "Akali", "Alistar", "Akshan", "Amumu", "Anivia", "Annie", "Aphelios", "Ashe", "Aurelion Sol",
+    "Nenhum/Vários", "Aatrox", "Ahri", "Akali", "Alistar", "Akshan", "Amumu", "Anivia", "Annie", "Aphelios", "Ashe", "Aurelion Sol",
     "Azir", "Bard", "Bel'Veth", "Blitzcrank", "Brand", "Braum", "Briar", "Caitlyn", "Camille", "Cassiopeia", "Cho'Gath", "Corki",
     "Darius", "Diana", "Dr. Mundo", "Draven", "Ekko", "Elise", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora",
     "Fizz", "Galio", "Gangplank", "Garen", "Gnar", "Gragas", "Graves", "Gwen", "Hecarim", "Heimerdinger", "Hwei", "Illaoi",
@@ -16,14 +16,14 @@ const campeoes = [
     "Volibear", "Warwick", "Wukong", "Xayah", "Xerath", "Xin Zhao", "Yasuo", "Yone", "Yorick", "Yuumi",
     "Zac", "Zed", "Zeri", "Ziggs", "Zilean", "Zoe", "Zyra"
 ];
-const datalist = document.getElementById("datalistCampeoes");
+const select = document.getElementById("inputMain");
 const form = document.getElementById("form");
 const inputNome = document.getElementById("inputNome");
 
 campeoes.forEach(champion => {
     const option = document.createElement("option");
-    option.value = champion;
-    datalist.appendChild(option);
+    option.innerText = champion;
+    select.appendChild(option);
 });
 
 form.onsubmit = function (e) {
