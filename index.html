@@ -15,23 +15,45 @@
     <div class="container">
         <form action="" class="was-validated" id="form">
             <div class="row pt-4">
-                <div class="col-4">
+                <div class="col-6">
                     <label class="form-label" for="inputNome">Qual é o seu Riot ID? </label>
                     <input class="form-control" type="text" id="inputNome" name="riotID" pattern="[\w.\-]{3,16}[#][a-zA-Z0-9]{3,5}"
                         placeholder="Ex: Joaozinho#BR01" required />
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <label class="form-label" for="inputComeco">Quando você começou a jogar?</label>
                     <input class="form-control" type="date" name="dataComecou" id="inputComeco" min="2009-10-27" required>
                 </div>
-                <div class="col-4">
+            </div>
+            
+            <div class="row pt-4">
+                <div class="col-6">
                     <label class="form-label" for="inputNivel">Qual é o nível da sua conta?</label>
                     <input class="form-control" type="number" name="nivelConta" id="inputNivel" min="0" required>
                 </div>
+                <div class="col-6">
+                    <label class="form-label" for="inputMain">Qual o seu main (campeão mais jogado)?</label>
+                    <!-- Os options desse select são adicionado via JS -->
+                    <select class="form-select" name="campeaoMain" id="inputMain" required></select>
+                </div>
             </div>
-
             <div class="row pt-4">
-                <div class="col-4">
+                <div class="col-6">
+                    <p class="form-label">Quais modos você joga?</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="summonersRift" id="checkSummoner">
+                        <label class="form-check-label" for="checkSummoner">Summoner's Rift</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="aram" id="checkAram">
+                        <label class="form-check-label" for="checkAram">ARAM</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="modosRotativos" id="checkrotativos">
+                        <label class="form-check-label" for="checkrotativos">Modos Rotativos</label>
+                    </div>
+                </div>
+                <div class="col-6">
                     <label class="form-label" for="selectRota">Qual é a sua rota principal? </label>
                     <select class="form-select" name="rota" id="selectRota" required>
                         <option value="n">Nenhuma/Todas</option>
@@ -42,29 +64,19 @@
                         <option value="s">Suporte (Sup)</option>
                     </select>
                 </div>
-                <div class="col-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="summonersRift" id="checkSummoner">
-                        <label class="form-check-label" for="checkSummoner">Summoner's Rift</label>
+            </div>
+            <div class="row pt-4">
+                <div class="col-6">
+                    <div class="form-check form-switch">
+                        <label class="form-label" for="checkRanked">Você joga partidas ranqueadas?</label>
+                        <input class="form-check-input" type="checkbox" name="jogaRanked" id="checkRanked">
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="aram" id="checkAram">
-                        <label class="form-check-label" for="checkAram">ARAM</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="modosRotativos" id="checkrotativos">
-                        <label class="form-check-label" for="checkrotativos">Modos Rotativos</label>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <label class="form-label" for="inputMain">Qual o seu main (campeão mais jogado)?</label>
-                    <select class="form-select" name="campeaoMain" id="inputMain"></select>
                 </div>
             </div>
         </form>
     </div>
 
-
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
 </html>
