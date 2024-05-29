@@ -23,11 +23,13 @@ addEventListener("DOMContentLoaded", () => {
     campeoes.forEach(champion => {
         let option = document.createElement("option")
         option.innerText = champion
+        option.value = champion
         select1.appendChild(option)
     })
     campeoes.forEach(champion => {
         let option = document.createElement("option")
         option.innerText = champion
+        option.value = champion
         select2.appendChild(option)
     })
 })
