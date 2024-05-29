@@ -48,6 +48,11 @@
                     </div>
                     <div class="row mt-4 d-flex align-items-end">
                         <div class="col-6">
+                            <label class="form-label" for="inputOdeia">Qual campeão você mais odeia?</label>
+                            <!-- Os options desse select são adicionado via JS -->
+                            <select class="form-select" name="campeaoOdiado" id="inputOdeia" required></select>
+                        </div>
+                        <div class="col-6">
                             <p class="form-label">Quais modos você joga?</p>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="summonersRift" id="checkSummoner">
@@ -63,10 +68,12 @@
                                 <label class="form-check-label" for="checkrotativos">Modos Rotativos</label>
                             </div>
                         </div>
+                    </div>
+                    <div class="row mt-4 d-flex align-items-end">
                         <div class="col-6">
-                            <label class="form-label" for="selectRota">Qual é a sua rota principal? </label>
-                            <select class="form-select" name="rota" id="selectRota" required>
-                                <option value="n">Nenhuma/Todas</option>
+                            <label class="form-label" for="inputRota">Qual é a sua rota principal? </label>
+                            <select class="form-select" name="rota" id="inputRota" disabled>
+                                <option value="n">Não tenho</option>
                                 <option value="t">Topo (Top)</option>
                                 <option value="j">Selva (Jungle)</option>
                                 <option value="m">Meio (Mid)</option>
@@ -74,28 +81,22 @@
                                 <option value="s">Suporte (Sup)</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row mt-4 d-flex align-items-end">
+
                         <div class="col-6">
-                            <label class="form-label" for="selectRank">Qual o seu rank?</label>
-                            <select class="form-select" name="rank" id="selectRank" required>
-                                <option value="n">Nenhum</option>
-                                <option value="f">Ferro</option>
-                                <option value="b">Bronze</option>
+                            <label class="form-label" for="inputRank">Qual o seu rank?</label>
+                            <select class="form-select" name="rank" id="inputRank" disabled>
+                                <option value="ne">Nenhum</option>
+                                <option value="fe">Ferro</option>
+                                <option value="br">Bronze</option>
                                 <option value="pr">Prata</option>
-                                <option value="o">Ouro</option>
+                                <option value="ou">Ouro</option>
                                 <option value="pl">Platina</option>
-                                <option value="e">Esmeralda</option>
+                                <option value="es">Esmeralda</option>
                                 <option value="di">Diamante</option>
-                                <option value="m">Mestre</option>
+                                <option value="me">Mestre</option>
                                 <option value="gm">Grão-Mestre</option>
                                 <option value="df">Desafiante</option>
                             </select>
-                        </div>
-                        <div class="col-6">
-                            <label class="form-label" for="inputOdeia">Qual campeão você mais odeia?</label>
-                            <!-- Os options desse select são adicionado via JS -->
-                            <select class="form-select" name="campeaoOdiado" id="inputOdeia" required></select>
                         </div>
                     </div>
                     <div class="row mt-4 d-flex align-items-end">
