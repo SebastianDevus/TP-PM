@@ -34,8 +34,8 @@ var campeoes = [
     "Zac", "Zed", "Zeri", "Ziggs", "Zilean", "Zoe", "Zyra"
 ]
 
-var campeoesFormatados = campeoes.map(function(campeao) {
+var campeoesOption = campeoes.map(function(campeao) {
     return removerAcentos(campeao).toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
 });
 
-export {Jogador, campeoes, campeoesFormatados}
+export {Jogador, campeoes, campeoesOption}

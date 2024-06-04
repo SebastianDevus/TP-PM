@@ -1,4 +1,4 @@
-import { campeoes, campeoesFormatados } from "./exports.js"
+import { campeoes, campeoesOption } from "./exports.js"
 
 addEventListener("DOMContentLoaded", () => {
     let select1 = document.getElementById("inputMain")
@@ -7,13 +7,13 @@ addEventListener("DOMContentLoaded", () => {
     for (let index = 0; index < campeoes.length; index++) {
         let option = document.createElement("option")
         option.innerText = campeoes[index]
-        option.value = campeoesFormatados[index]
+        option.value = campeoesOption[index]
         select1.appendChild(option)
     }
     for (let index = 0; index < campeoes.length; index++) {
         let option = document.createElement("option")
         option.innerText = campeoes[index]
-        option.value = campeoesFormatados[index]
+        option.value = campeoesOption[index]
         select2.appendChild(option)
     }
 })
