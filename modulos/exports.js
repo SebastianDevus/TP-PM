@@ -34,6 +34,4 @@ var campeoesFormatados = campeoes.map(function(campeao) {
     return campeao.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
 });
 
-console.log(campeoesFormatados);
-
 export {Jogador, campeoes, campeoesFormatados}
