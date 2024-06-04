@@ -30,4 +30,10 @@ var campeoes = [
     "Zac", "Zed", "Zeri", "Ziggs", "Zilean", "Zoe", "Zyra"
 ]
 
-export {Jogador, campeoes}
+var campeoesFormatados = campeoes.map(function(campeao) {
+    return campeao.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
+});
+
+console.log(campeoesFormatados);
+
+export {Jogador, campeoes, campeoesFormatados}
