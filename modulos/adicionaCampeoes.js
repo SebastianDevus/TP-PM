@@ -1,19 +1,19 @@
-import { campeoes } from "./exports.js"
+import { campeoes, campeoesFormatados } from "./exports.js"
 
 addEventListener("DOMContentLoaded", () => {
     let select1 = document.getElementById("inputMain")
     let select2 = document.getElementById("inputOdeia")
     
-    campeoes.forEach(champion => {
+    for (let index = 0; index < campeoes.length; index++) {
         let option = document.createElement("option")
-        option.innerText = champion
-        option.value = champion
+        option.innerText = campeoes[index]
+        option.value = campeoesFormatados[index]
         select1.appendChild(option)
-    })
-    campeoes.forEach(champion => {
+    }
+    for (let index = 0; index < campeoes.length; index++) {
         let option = document.createElement("option")
-        option.innerText = champion
-        option.value = champion
+        option.innerText = campeoes[index]
+        option.value = campeoesFormatados[index]
         select2.appendChild(option)
-    })
+    }
 })
