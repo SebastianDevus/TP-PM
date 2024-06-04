@@ -1,3 +1,7 @@
+function removerAcentos(s) {
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+}
+
 class Jogador{
     constructor(riotID, dataInicio, nivel, campeaoMain, campeaoOdiado, modos, rotaMain, rank){
         this.riotID = riotID
@@ -31,7 +35,7 @@ var campeoes = [
 ]
 
 var campeoesFormatados = campeoes.map(function(campeao) {
-    return campeao.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
+    return removerAcentos(campeao).toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
 });
 
 export {Jogador, campeoes, campeoesFormatados}
