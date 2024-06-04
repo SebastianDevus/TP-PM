@@ -8,9 +8,6 @@ document.write(`
             <li class="nav-item ps-3">
                 <a  class="nav-link" href="">Editar</a>
             </li>
-            <li class="nav-item ps-3">
-                <a  class="nav-link" href="formularioPM.html">Formulario anterior</a>
-            </li>
         </ul>
 
 
