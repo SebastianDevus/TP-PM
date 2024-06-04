@@ -1,4 +1,5 @@
 // Antes do DOM carregar
+import { Jogador } from "./exports.js";
 var vet = [];
 
 // Dps do DOM carregar
@@ -57,17 +58,4 @@ function escreveModos(summonersRift, aram, modosRotativos) {
     }
 
     return string
-}
-
-class Jogador{
-    constructor(riotID, dataInicio, nivel, campeaoMain, campeaoOdiado, modos, rotaMain, rank){
-        this.riotID = riotID
-        this.dataInicio = dataInicio
-        this.nivel = nivel
-        this.campeaoMain = campeaoMain
-        this.campeaoOdiado = campeaoOdiado
-        this.modos = modos
-        this.rotaMain = rotaMain
-        this.rank = rank
-    }
 }
