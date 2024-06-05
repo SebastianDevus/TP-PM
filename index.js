@@ -1,10 +1,13 @@
 import { Jogador } from "./modulos/exports.js"
-import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro } from "./modulos/funcoesForm.js"
+import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaCampeoes } from "./modulos/funcoesForm.js"
 
 // Arquivo principal. Criador de eventListeners
 addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form")
     const feedbackChecks = document.getElementById("feedbackChecks")
+
+    adicionaCampeoes(form.inputMain)
+    adicionaCampeoes(form.inputOdeia)
 
     form.querySelectorAll("input:not([type='checkbox']), select").forEach(input => {
         ['click', 'input'].forEach(function (evt) {

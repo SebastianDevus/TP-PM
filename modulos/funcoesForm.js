@@ -1,4 +1,4 @@
-import { Jogador } from "./exports.js";
+import { Jogador, campeoes, campeoesOption } from "./exports.js";
 
 export function validaForm(form) {
     let validade = true
@@ -60,6 +60,15 @@ export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
     vet.push(jogador)
     localStorage.setItem("jogador", JSON.stringify(vet))
     alert("Cadastrado com sucesso!")
+}
+
+export function adicionaCampeoes(s) {
+    for (let index = 0; index < campeoes.length; index++) {
+        let option = document.createElement("option")
+        option.innerText = campeoes[index]
+        option.value = campeoesOption[index]
+        s.appendChild(option)
+    }
 }
 
 function insereModos(summonersRift, aram, modosRotativos) {
