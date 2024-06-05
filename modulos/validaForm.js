@@ -1,44 +1,54 @@
-addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form");
-    const checkSummoner = document.getElementById("checkSummoner");
-    const checkAram = document.getElementById("checkAram");
-    const checkRotativos = document.getElementById("checkRotativos");
-    const checksInvalidos = document.getElementById("checksInvalidos");
-    
-    form.querySelectorAll('input:not([type="checkbox"]), select').forEach(input => {
-        input.addEventListener("change", () => {
-            if (input.checkValidity()) {
-                input.classList.remove("is-invalid")
-                input.classList.add("is-valid")
-            } else {
-                input.classList.remove("is-valid")
-                input.classList.add("is-invalid")
-            }
-        })
+function validaForm(form) {
+    let validade = true
+    let checks = 0
+    form.querySelectorAll('input, select').forEach(input => {
+        if (input.checkValidity() == false) {
+            validade = false
+        } 
     })
     form.querySelectorAll('input[type="checkbox"]').forEach(input => {
-        input.addEventListener("click", () => {
-            if (checkSummoner.checked || checkAram.checked || checkRotativos.checked) {
-                checkSummoner.classList.remove("is-invalid")
-                checkAram.classList.remove("is-invalid")
-                checkRotativos.classList.remove("is-invalid")
-
-                checkSummoner.classList.add("is-valid")
-                checkAram.classList.add("is-valid")
-                checkRotativos.classList.add("is-valid")
-
-                checksInvalidos.style.display = "none"
-            } else {
-                checkSummoner.classList.remove("is-valid")
-                checkAram.classList.remove("is-valid")
-                checkRotativos.classList.remove("is-valid")
-                
-                checkSummoner.classList.add("is-invalid")
-                checkAram.classList.add("is-invalid")
-                checkRotativos.classList.add("is-invalid")
-
-                checksInvalidos.style.display = "block"
-            }
-        })
+        if (input.checked == true) {
+            checks++
+        } 
     })
-})
+    if (checks == 0) {
+        validade = false
+    }
+    return validade
+}
+
+function alteraVisual(input) {
+    if (input.checkValidity()) {
+        input.classList.remove("is-invalid")
+        input.classList.add("is-valid")
+    } else {
+        input.classList.remove("is-valid")
+        input.classList.add("is-invalid")
+    } 
+}
+
+function alteraVisualChecks(c1, c2, c3, cd) {
+    if (c1.checked || c2.checked || c3.checked) {
+        c1.classList.remove("is-invalid")
+        c2.classList.remove("is-invalid")
+        c3.classList.remove("is-invalid")
+
+        c1.classList.add("is-valid")
+        c2.classList.add("is-valid")
+        c3.classList.add("is-valid")
+
+        cd.style.display = "none"
+    } else {
+        c1.classList.remove("is-valid")
+        c2.classList.remove("is-valid")
+        c3.classList.remove("is-valid")
+
+        c1.classList.add("is-invalid")
+        c2.classList.add("is-invalid")
+        c3.classList.add("is-invalid")
+
+        cd.style.display = "block"
+    }
+}
+
+export { alteraVisual, alteraVisualChecks, validaForm }
