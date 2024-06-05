@@ -1,15 +1,17 @@
-function validaForm(form) {
+import { Jogador } from "./exports.js";
+
+export function validaForm(form) {
     let validade = true
     let checks = 0
     form.querySelectorAll('input, select').forEach(input => {
         if (input.checkValidity() == false) {
             validade = false
-        } 
+        }
     })
     form.querySelectorAll('input[type="checkbox"]').forEach(input => {
         if (input.checked == true) {
             checks++
-        } 
+        }
     })
     if (checks == 0) {
         validade = false
@@ -17,17 +19,17 @@ function validaForm(form) {
     return validade
 }
 
-function alteraVisual(input) {
+export function alteraVisual(input) {
     if (input.checkValidity()) {
         input.classList.remove("is-invalid")
         input.classList.add("is-valid")
     } else {
         input.classList.remove("is-valid")
         input.classList.add("is-invalid")
-    } 
+    }
 }
 
-function alteraVisualChecks(c1, c2, c3, cd) {
+export function alteraVisualChecks(c1, c2, c3, cd) {
     if (c1.checked || c2.checked || c3.checked) {
         c1.classList.remove("is-invalid")
         c2.classList.remove("is-invalid")
@@ -51,4 +53,27 @@ function alteraVisualChecks(c1, c2, c3, cd) {
     }
 }
 
-export { alteraVisual, alteraVisualChecks, validaForm }
+export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
+    let vet = JSON.parse(localStorage.getItem("")) || []
+    let jogador = new Jogador(i1.value, i2.value, i3.value, i4.value, i5.value,
+        insereModos(c1.checked, c2.checked, c3.checked), i6.value, i7.value)
+    vet.push(jogador)
+    localStorage.setItem("jogador", JSON.stringify(vet))
+    alert("Cadastrado com sucesso!")
+}
+
+function insereModos(summonersRift, aram, modosRotativos) {
+    let vet = []
+
+    if (summonersRift) {
+        vet.push("SR")
+    }
+    if (aram) {
+        vet.push("ARAM")
+    }
+    if (modosRotativos) {
+        vet.push("MR")
+    }
+
+    return vet
+}

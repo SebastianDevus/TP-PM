@@ -1,8 +1,4 @@
-function removerAcentos(s) {
-    return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-}
-
-class Jogador{
+export class Jogador{
     constructor(riotID, dataInicio, nivel, campeaoMain, campeaoOdiado, modos, rotaMain, rank){
         this.riotID = riotID
         this.dataInicio = dataInicio
@@ -15,7 +11,7 @@ class Jogador{
     }
 }
 
-var campeoes = [
+export var campeoes = [
     "Nenhum/Vários", "Aatrox", "Ahri", "Akali", "Alistar", "Akshan", "Amumu", "Anivia", "Annie", "Aphelios", "Ashe", "Aurelion Sol",
     "Azir", "Bardo", "Bel'Veth", "Blitzcrank", "Brand", "Braum", "Briar", "Caitlyn", "Camille", "Cassiopeia", "Cho'Gath", "Corki",
     "Darius", "Diana", "Dr. Mundo", "Draven", "Ekko", "Elise", "Evelynn", "Ezreal", "Fiddlesticks", "Fiora",
@@ -34,8 +30,10 @@ var campeoes = [
     "Zac", "Zed", "Zeri", "Ziggs", "Zilean", "Zoe", "Zyra"
 ]
 
-var campeoesOption = campeoes.map(function(campeao) {
+export var campeoesOption = campeoes.map(function(campeao) {
     return removerAcentos(campeao).toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
 });
 
-export {Jogador, campeoes, campeoesOption}
+function removerAcentos(s) {
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+}
