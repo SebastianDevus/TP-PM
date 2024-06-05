@@ -1,31 +1,19 @@
 import { Jogador } from "./exports.js"
 
-function escreveModos(summonersRift, aram, modosRotativos) {
-    let primeiro = true
-    let string;
+function insereModos(summonersRift, aram, modosRotativos) {
+    let vetT = []
 
     if (summonersRift) {
-        string = "Summoner's Rift"
-        primeiro = false;
+        vetT.push("SR")
     }
     if (aram) {
-        if (primeiro) {
-            string = "ARAM"
-            primeiro = false;
-        } else {
-            string += ", ARAM"
-        }
+        vetT.push("ARAM")
     }
     if (modosRotativos) {
-        if (primeiro) {
-            string = "Modos Rotativos"
-            primeiro = false;
-        } else {
-            string += ", Modos Rotativos"
-        }
+        vetT.push("MR")
     }
 
-    return string
+    return vetT
 }
 
 addEventListener("DOMContentLoaded", () => {
@@ -50,7 +38,7 @@ addEventListener("DOMContentLoaded", () => {
 
         if (escolheuRift || escolheuAram || escolheuRotativos) {
             let jogador = new Jogador(inputNome.value, inputComeco.value, inputNivel.value, inputMain.value, inputOdeia.value,
-                escreveModos(escolheuRift, escolheuAram, escolheuRotativos), inputRota.value, inputRank.value)
+                insereModos(escolheuRift, escolheuAram, escolheuRotativos), inputRota.value, inputRank.value)
             vet.push(jogador)
             localStorage.setItem("jogador", JSON.stringify(vet))
         } else {
