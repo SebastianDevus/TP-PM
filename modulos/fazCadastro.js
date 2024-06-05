@@ -29,7 +29,7 @@ addEventListener("DOMContentLoaded", () => {
     const checkRotativos = document.getElementById("checkRotativos")
     const inputRota = document.getElementById("inputRota")
     const inputRank = document.getElementById("inputRank")
-    const checksInvalidos = document.getElementById("checksInvalidos")
+    const feedbackChecks = document.getElementById("feedbackChecks")
     let vet = JSON.parse(localStorage.getItem("")) || []
 
     form.querySelectorAll("input:not([type='checkbox']), select").forEach(input => {
@@ -41,7 +41,7 @@ addEventListener("DOMContentLoaded", () => {
     })
     form.querySelectorAll("input[type='checkbox']").forEach(input => {
         input.addEventListener("change", () => {
-            alteraVisualChecks(checkSummoner, checkAram, checkRotativos, checksInvalidos)
+            alteraVisualChecks(checkSummoner, checkAram, checkRotativos, feedbackChecks)
         })
     })
 
@@ -63,6 +63,6 @@ addEventListener("DOMContentLoaded", () => {
             form.querySelectorAll("input:not([type='checkbox']), select").forEach(input => {
             alteraVisual(input)
         })
-        alteraVisualChecks(checkSummoner, checkAram, checkRotativos, checksInvalidos)
+        alteraVisualChecks(checkSummoner, checkAram, checkRotativos, feedbackChecks)
     })
 })
