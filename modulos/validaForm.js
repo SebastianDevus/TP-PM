@@ -3,6 +3,7 @@ addEventListener("DOMContentLoaded", () => {
     const checkSummoner = document.getElementById("checkSummoner");
     const checkAram = document.getElementById("checkAram");
     const checkRotativos = document.getElementById("checkRotativos");
+    const checksInvalidos = document.getElementById("checksInvalidos");
     
     form.querySelectorAll('input:not([type="checkbox"]), select').forEach(input => {
         input.addEventListener("change", () => {
@@ -25,6 +26,8 @@ addEventListener("DOMContentLoaded", () => {
                 checkSummoner.classList.add("is-valid")
                 checkAram.classList.add("is-valid")
                 checkRotativos.classList.add("is-valid")
+
+                checksInvalidos.style.display = "none"
             } else {
                 checkSummoner.classList.remove("is-valid")
                 checkAram.classList.remove("is-valid")
@@ -33,6 +36,8 @@ addEventListener("DOMContentLoaded", () => {
                 checkSummoner.classList.add("is-invalid")
                 checkAram.classList.add("is-invalid")
                 checkRotativos.classList.add("is-invalid")
+
+                checksInvalidos.style.display = "block"
             }
         })
     })

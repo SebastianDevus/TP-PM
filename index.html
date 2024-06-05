@@ -28,11 +28,17 @@
                             <label class="form-label" for="inputNome">Qual é o seu Riot ID? </label>
                             <input class="form-control" type="text" id="inputNome" name="riotID"
                                 pattern="[\w.\-]{3,16}[#][a-zA-Z0-9]{3,5}" placeholder="Ex: Joaozinho#BR01" required />
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                         <div class="col-6">
                             <label class="form-label" for="inputComeco">Quando você começou a jogar?</label>
-                            <input class="form-control" type="date" name="dataComecou" id="inputComeco" min="2009-10-27"
-                                required>
+                            <input class="form-control" type="date" name="dataComecou" id="inputComeco" min="2009-10-27" 
+                                value="2009-10-27" required>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                     </div>
 
@@ -40,12 +46,18 @@
                         <div class="col-6">
                             <label class="form-label" for="inputNivel">Qual é o nível da sua conta?</label>
                             <input class="form-control" type="number" name="nivelConta" id="inputNivel" min="0"
-                                required>
+                                placeholder="Min: 0" required>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                         <div class="col-6">
                             <label class="form-label" for="inputMain">Qual o seu main (campeão mais jogado)?</label>
                             <!-- Os options desse select são adicionado via JS -->
                             <select class="form-select" name="campeaoMain" id="inputMain" required></select>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-4 d-flex align-items-end">
@@ -53,6 +65,9 @@
                             <label class="form-label" for="inputOdeia">Qual campeão você mais odeia?</label>
                             <!-- Os options desse select são adicionado via JS -->
                             <select class="form-select" name="campeaoOdiado" id="inputOdeia" required></select>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                         <div class="col-6">
                             <p class="form-label">Quais modos você joga?</p>
@@ -66,8 +81,11 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="modosRotativos"
-                                    id="checkRotativos">
+                                id="checkRotativos">
                                 <label class="form-check-label" for="checkRotativos">Modos Rotativos</label>
+                            </div>
+                            <div id="checksInvalidos" class="invalid-feedback">
+                                Selecione ao menos um modo
                             </div>
                         </div>
                     </div>
@@ -82,6 +100,9 @@
                                 <option value="a">Atirador (ADC)</option>
                                 <option value="s">Suporte (Sup)</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
 
                         <div class="col-6">
@@ -99,6 +120,9 @@
                                 <option value="gm">Grão-Mestre</option>
                                 <option value="df">Desafiante</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Valor inválido!
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-4 d-flex align-items-end">
