@@ -1,19 +1,19 @@
 import { Jogador } from "./exports.js"
 
 function insereModos(summonersRift, aram, modosRotativos) {
-    let vetT = []
+    let vet = []
 
     if (summonersRift) {
-        vetT.push("SR")
+        vet.push("SR")
     }
     if (aram) {
-        vetT.push("ARAM")
+        vet.push("ARAM")
     }
     if (modosRotativos) {
-        vetT.push("MR")
+        vet.push("MR")
     }
 
-    return vetT
+    return vet
 }
 
 addEventListener("DOMContentLoaded", () => {
