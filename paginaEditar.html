@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário LOL</title>
+</head>
+<body>
+    <script src="modulos/carregaNavbar.js"></script>
+    
+    <div class="table-responsive mt-4">
+        <div class="container" style="margin-left: 0px;">
+            <table class="table table-sm table-bordered">
+                <thead>
+                    <tr>
+                        <th>Riot ID</th>
+                        <th>Data de criação</th>
+                        <th>Nível</th>
+                        <th>Main</th>
+                        <th>Odeia</th>
+                        <th>Modos</th>
+                        <th>Rota Main</th>
+                        <th>Rank</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="p-0 align-middle">
+                    <tr>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><select name="" id=""></select></td>
+                        <td><select name="" id=""></select></td>
+                        <td>
+                            <div class="form-check form-check-inline text-nowrap">
+                                <input class="form-check-input" type="checkbox" name="summonersRift" id="checkSummoner">
+                                <label class="form-check-label" for="checkSummoner">Summoner's Rift</label>
+                            </div>
+                                <div class="form-check form-check-inline text-nowrap">
+                                <input class="form-check-input" type="checkbox" name="aram" id="checkAram">
+                                <label class="form-check-label" for="checkAram">ARAM</label>
+                            </div>
+                            <div class="form-check form-check-inline text-nowrap">
+                                <input class="form-check-input" type="checkbox" name="modosRotativos"
+                                id="checkRotativos">
+                                <label class="form-check-label" for="checkRotativos">Modos Rotativos</label>
+                            </div>
+                        </td>
+                        <td>
+                            <select name="" id="">
+                                <option value="n">Não tenho</option>
+                                <option value="t">Topo (Top)</option>
+                                <option value="j">Selva (Jungle)</option>
+                                <option value="m">Meio (Mid)</option>
+                                <option value="a">Atirador (ADC)</option>
+                                <option value="s">Suporte (Sup)</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="" id="">
+                                <option value="ne">Nenhum</option>
+                                <option value="fe">Ferro</option>
+                                <option value="br">Bronze</option>
+                                <option value="pr">Prata</option>
+                                <option value="ou">Ouro</option>
+                                <option value="pl">Platina</option>
+                                <option value="es">Esmeralda</option>
+                                <option value="di">Diamante</option>
+                                <option value="me">Mestre</option>
+                                <option value="gm">Grão-Mestre</option>
+                                <option value="df">Desafiante</option>
+                            </select>
+                        </td>
+                        <td><button class="btn btn-secondary">Editar</button></td>
+                        <td><button class="btn btn-danger">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
