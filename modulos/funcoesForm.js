@@ -54,7 +54,7 @@ export function alteraVisualChecks(c1, c2, c3, cd) {
 }
 
 export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
-    let vet = JSON.parse(localStorage.getItem("")) || []
+    let vet = JSON.parse(localStorage.getItem("jogador")) || []
     let jogador = new Jogador(i1.value, i2.value, i3.value, i4.value, i5.value,
         insereModos(c1.checked, c2.checked, c3.checked), i6.value, i7.value)
     vet.push(jogador)
