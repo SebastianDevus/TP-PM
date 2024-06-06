@@ -1,5 +1,5 @@
 import { Jogador } from "./modulos/exports.js"
-import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaCampeoes } from "./modulos/funcoesForm.js"
+import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaCampeoes, habilitaSelects } from "./modulos/funcoesForm.js"
 
 // Arquivo principal. Criador de eventListeners
 addEventListener("DOMContentLoaded", () => {
@@ -19,7 +19,8 @@ addEventListener("DOMContentLoaded", () => {
 
     form.querySelectorAll("input[type='checkbox']").forEach(input => {
         input.addEventListener("change", () => {
-            alteraVisualChecks(checkSummoner, checkAram, checkRotativos, feedbackChecks)
+            alteraVisualChecks(form.checkSummoner, form.checkAram, form.checkRotativos, feedbackChecks)
+            habilitaSelects(form.checkSummoner, form.inputRota, form.inputRank)
         })
     })
 

@@ -71,6 +71,18 @@ export function adicionaCampeoes(s) {
     }
 }
 
+export function habilitaSelects(c, s1, s2) {
+    if (c.checked == true) {
+        s1.disabled = false
+        s2.disabled = false
+    } else {
+        s1.disabled = true
+        s1.value = "n"
+        s2.disabled = true
+        s2.value = "ne"
+    }
+}
+
 function insereModos(summonersRift, aram, modosRotativos) {
     let vet = []
 
