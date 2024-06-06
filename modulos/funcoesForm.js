@@ -4,7 +4,7 @@ export function validaForm(form) {
     let validade = true
     let checks = 0
     form.querySelectorAll('input, select').forEach(input => {
-        if (input.checkValidity() == false) {
+        if (!input.checkValidity()) {
             validade = false
         }
     })
