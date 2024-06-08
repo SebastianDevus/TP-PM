@@ -1,4 +1,4 @@
-import { Jogador, campeoes, campeoesOption } from "./exports.js";
+import { Jogador, campeoes, campeoesOption } from "./exportsGerais.js";
 
 export function validaForm(form) {
     let validade = true

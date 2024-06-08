@@ -1,5 +1,4 @@
-import { Jogador } from "./modulos/exports.js"
-import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaCampeoes, habilitaSelects } from "./modulos/funcoesForm.js"
+import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaCampeoes, habilitaSelects } from "./modulos/exportsForm.js"
 
 // Arquivo principal. Criador de eventListeners
 addEventListener("DOMContentLoaded", () => {
