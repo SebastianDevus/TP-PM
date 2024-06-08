@@ -63,7 +63,7 @@ export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
 }
 
 export function adicionaOptions(s, v1, v2) {
-    for (let index = 0; index < campeoes.length; index++) {
+    for (let index = 0; index < v1.length; index++) {
         let option = document.createElement("option")
         option.innerText = v1[index]
         option.value = v2[index]

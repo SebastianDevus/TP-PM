@@ -1,50 +1,82 @@
+import { campeoes, campeoesOption, rotas, rotasOption, ranks, ranksOption } from "./modulos/exportsGerais.js"
+import { adicionaOptions } from "./modulos/exportsForm.js"
+
 addEventListener("DOMContentLoaded", () => {
     let corpoTabela = document.getElementById("corpoTabela")
     
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
-    vet.forEach(element => {
+    vet.forEach(elm => {
         
         let linha = document.createElement("tr")
 
-        for (let index = 0; index < Object.keys(element).length; index++) {
+        for (let index = 0; index < Object.keys(elm).length; index++) {
+            let elemento
             let coluna = document.createElement("td")
-            let elemento = ""
             switch (index) {
                 case 0:
-                    elemento = `<input type="text" name="" id="" value="${element.riotID}" disabled>`
+                    elemento = document.createElement("input")
+                    elemento.disabled = true
+                    elemento.value = elm.riotID
                     break
                     
                 case 1:
-                    elemento = `<input type="date" name="" id="" value="${element.dataInicio}" disabled>`
+                    elemento = document.createElement("input")
+                    elemento.disabled = true
+                    elemento.value = elm.dataInicio
                     break
             
                 case 2:
-                    elemento = `<input type="number" name="" id="" value="${element.nivel}" disabled>`
+                    elemento = document.createElement("input")
+                    elemento.disabled = true
+                    elemento.value = elm.nivel
                     break
             
                 case 3:
-                    elemento = `<select name="" id="" disabled></select>`
+                    elemento = document.createElement("select")
+                    elemento.disabled = true
+                    adicionaOptions(elemento, campeoes, campeoesOption)
+                    elemento.value = elm.campeaoMain
                     break
             
                 case 4:
-                    elemento = `<select name="" id="" disabled></select>`
+                    elemento = document.createElement("select")
+                    elemento.disabled = true
+                    adicionaOptions(elemento, campeoes, campeoesOption)
+                    elemento.value = elm.campeaoOdiado
                     break
             
                 case 5:
-    
+                    elemento = document.createElement("input")
+                    elemento.type = "checkbox"
+                    elemento.classList.add("a")
+                    elemento.disabled = true
+                    coluna.append(elemento)
+                    elemento = document.createElement("input")
+                    elemento.type = "checkbox"
+                    elemento.disabled = true
+                    coluna.append(elemento)
+                    elemento = document.createElement("input")
+                    elemento.type = "checkbox"
+                    elemento.disabled = true
                     break
             
                 case 6:
-                    elemento = `<select name="" id="" disabled></select>`
+                    elemento = document.createElement("select")
+                    elemento.disabled = true
+                    adicionaOptions(elemento, rotas, rotasOption)
+                    elemento.value = elm.rotaMain
                     break
             
                 case 7:
-                    elemento = `<select name="" id="" disabled></select>`
+                    elemento = document.createElement("select")
+                    elemento.disabled = true
+                    adicionaOptions(elemento, ranks, ranksOption)
+                    elemento.value = elm.rank
                     break
                 default:
                     break
             }
-            coluna.innerHTML = elemento
+            coluna.append(elemento)
             linha.appendChild(coluna)
         }
         corpoTabela.appendChild(linha)

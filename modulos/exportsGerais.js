@@ -34,6 +34,12 @@ export var campeoesOption = campeoes.map(function(campeao) {
     return removerAcentos(campeao).toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s/g, '');
 });
 
+export var rotas = ["Não tenho", "Topo (Top)", "Caçador (Jungle)", "Meio (Mid)", "Atirador (ADC)", "Suporte (Sup)"]
+export var rotasOption = ["n", "t", "j", "m", "a", "s"]
+export var ranks = ["Nenhum", "Ferro", "Bronze", "Prata", "Ouro", "Platina", 
+                    "Esmeralda", "Diamante", "Mestre", "Grão-Mestre", "Desafiante"]
+export var ranksOption = ["ne", "fe", "br", "pr", "ou", "pl", "es", "di", "me", "gm", "df"]
+
 function removerAcentos(s) {
     return s.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 }
