@@ -1,13 +1,21 @@
-import { campeoes, campeoesOption } from "./modulos/exportsGerais.js";
-import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, adicionaOptions, habilitaSelects } from "./modulos/exportsForm.js"
+import { campeoes, campeoesOption, ranks, ranksOption, rotas, rotasOption } from "./modulos/exportsGerais.js";
+import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, 
+        adicionaOptions, habilitaSelects, carregaTabela } from "./modulos/exportsFuncoes.js"
 
 // Arquivo principal. Criador de eventListeners
+
+
 addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form")
     const feedbackChecks = document.getElementById("feedbackChecks")
+    const corpoTabela = document.getElementById("corpoTabela")
+    corpoTabela.onload = carregaTabela(corpoTabela, campeoes,
+        campeoesOption, rotas, rotasOption, ranks, ranksOption)
 
     adicionaOptions(form.inputMain, campeoes, campeoesOption)
     adicionaOptions(form.inputOdeia, campeoes, campeoesOption)
+    adicionaOptions(form.inputRota, rotas, rotasOption)
+    adicionaOptions(form.inputRank, ranks, ranksOption)
 
     form.querySelectorAll("input:not([type='checkbox']), select").forEach(input => {
         ['click', 'input'].forEach(function (evt) {

@@ -1,4 +1,4 @@
-import { Jogador, campeoes, campeoesOption } from "./exportsGerais.js";
+import { Jogador } from "./exportsGerais.js";
 
 export function validaForm(form) {
     let validade = true
@@ -81,6 +81,63 @@ export function habilitaSelects(c, s1, s2) {
         s2.disabled = true
         s2.value = "ne"
     }
+}
+
+export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2) { 
+    // vc = vetor campeao, vl = vetor lane (lane = rota), vr = vetor rank
+    let vet = JSON.parse(localStorage.getItem("jogador")) || []
+    vet.forEach(elm => {
+        let linha = document.createElement("tr")
+        for (let index = 0; index < Object.keys(elm).length; index++) {
+            let coluna = document.createElement("td")
+            switch (index) {
+                case 0:
+                    coluna.innerHTML = elm.riotID
+                    break
+                    
+                case 1:
+                    coluna.innerHTML = elm.dataInicio
+                    break
+            
+                case 2:
+                    coluna.innerHTML = elm.nivel
+                    break
+            
+                case 3:
+                    coluna.innerHTML = vc1[vc2.indexOf(elm.campeaoMain)]
+                    break
+            
+                case 4:
+                    coluna.innerHTML = vc1[vc2.indexOf(elm.campeaoOdiado)]
+                    break
+            
+                case 5:
+                    if (elm.modos.includes("SR")) {
+                        coluna.innerHTML += "Summoner's Rift <br>"
+                    }
+                    if (elm.modos.includes("ARAM")) {
+                        coluna.innerHTML += "ARAM <br>"
+                    }
+                    if (elm.modos.includes("MR")) {
+                        coluna.innerHTML += "Modos Rotativos <br>"
+                    }
+                    break
+            
+                case 6:
+                    coluna.innerHTML = vl1[vl2.indexOf(elm.rotaMain)]
+                    break
+            
+                case 7:
+                    coluna.innerHTML = vr1[vr2.indexOf(elm.rank)]
+
+                    break
+                default:
+                    break
+            }
+            linha.appendChild(coluna)
+        }
+        tabela.appendChild(linha)
+    });
 }
 
 function insereModos(summonersRift, aram, modosRotativos) {

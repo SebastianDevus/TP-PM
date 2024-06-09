@@ -10,12 +10,16 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Formulário LOL</title>
     <script type="module" src="modulos/exportsGerais.js"></script>
-    <script type="module" src="modulos/exportsForm.js"></script>
+    <script type="module" src="modulos/exportsFuncoes.js"></script>
     <script type="module" src="index.js"></script>
 </head>
 
 <body>
-    <script src="modulos/carregaNavbar.js"></script>
+    <nav class="navbar navbar-expand-sm bg-black">
+        <ul class="navbar-nav">
+            <li class="ms-2"><h5>Formulário LOL</h5></li>
+        </ul>
+    </nav>
 
     <div class="container">
         <div class="row">
@@ -92,12 +96,12 @@
                         <div class="col-6">
                             <label class="form-label" for="inputRota">Qual é a sua rota principal? </label>
                             <select class="form-select" name="rota" id="inputRota" disabled>
-                                <option value="n">Não tenho</option>
+                                <!-- <option value="n">Não tenho</option>
                                 <option value="t">Topo (Top)</option>
                                 <option value="j">Selva (Jungle)</option>
                                 <option value="m">Meio (Mid)</option>
                                 <option value="a">Atirador (ADC)</option>
-                                <option value="s">Suporte (Sup)</option>
+                                <option value="s">Suporte (Sup)</option> -->
                             </select>
                             <div class="invalid-feedback">
                                 Valor inválido!
@@ -107,7 +111,7 @@
                         <div class="col-6">
                             <label class="form-label" for="inputRank">Qual o seu rank?</label>
                             <select class="form-select" name="rank" id="inputRank" disabled>
-                                <option value="ne">Nenhum</option>
+                                <!-- <option value="ne">Nenhum</option>
                                 <option value="fe">Ferro</option>
                                 <option value="br">Bronze</option>
                                 <option value="pr">Prata</option>
@@ -117,7 +121,7 @@
                                 <option value="di">Diamante</option>
                                 <option value="me">Mestre</option>
                                 <option value="gm">Grão-Mestre</option>
-                                <option value="df">Desafiante</option>
+                                <option value="df">Desafiante</option> -->
                             </select>
                             <div class="invalid-feedback">
                                 Valor inválido!
@@ -136,6 +140,30 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="table-responsive mt-4 mx-5">
+        <!-- <div class="container" style="margin-left: 0px;"> -->
+            <table class="table table-sm table-bordered">
+                <thead>
+                    <tr>
+                        <th>Riot ID</th>
+                        <th>Data de criação</th>
+                        <th>Nível</th>
+                        <th>Main</th>
+                        <th>Odeia</th>
+                        <th>Modos</th>
+                        <th>Rota Main</th>
+                        <th>Rank</th>
+                        <th>Ed</th>
+                        <th>EX</th>
+                    </tr>
+                </thead>
+                <tbody class="p-0 align-middle" id="corpoTabela">
+                  
+                </tbody>
+            </table>
+        <!-- </div> -->
     </div>
 
 
