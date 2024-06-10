@@ -160,7 +160,6 @@ export function carregaTabela(tabela, temp) {
             linha.appendChild(coluna)
         }
         linha.appendChild(temp.content.cloneNode(true))
-        
         tabela.appendChild(linha)
     });
 }
@@ -172,18 +171,28 @@ export function preencheFormEdicao(tr, i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
         switch (index) {
             case 0:
                 i1.value = filho.innerText
+                i1.dispatchEvent(new Event("click"))
+                i1.dispatchEvent(new Event("input"))
                 break
             case 1:
-                i2.value = filho.innerText                
+                i2.value = filho.innerText
+                i2.dispatchEvent(new Event("click"))
+                i2.dispatchEvent(new Event("input"))                
                 break
             case 2:
                 i3.value = filho.innerText
+                i3.dispatchEvent(new Event("click"))
+                i3.dispatchEvent(new Event("input"))
                 break
             case 3:
                 i4.value = campeoesOption[campeoes.indexOf(filho.innerText)]
+                i4.dispatchEvent(new Event("click"))
+                i4.dispatchEvent(new Event("input"))
                 break
             case 4:
                 i5.value = campeoesOption[campeoes.indexOf(filho.innerText)]
+                i5.dispatchEvent(new Event("click"))
+                i5.dispatchEvent(new Event("input"))
                 break
             case 5:
                 if (filho.querySelector("#SR") != null) {
@@ -201,18 +210,37 @@ export function preencheFormEdicao(tr, i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
                 } else {
                     c3.checked = false
                 }
+                c1.dispatchEvent(new Event("change"))
+                c2.dispatchEvent(new Event("change"))
+                c3.dispatchEvent(new Event("change"))
                 break
             case 6:
                 i6.value = rotasOption[rotas.indexOf(filho.innerText)]
+                i6.dispatchEvent(new Event("click"))
+                i6.dispatchEvent(new Event("input"))
                 break
             case 7:
                 i7.value = ranksOption[ranks.indexOf(filho.innerText)]
+                i7.dispatchEvent(new Event("click"))
+                i7.dispatchEvent(new Event("input"))
                 break
         
             default:
                 break
         }
     }
+}
+
+export function mudaModoVisual(sp, b1, b2, edicao) {
+    if (edicao) {
+        sp.innerText = "edição"
+        b1.innerText = "Editar"
+        b2.innerText = "Cancelar"
+    } else {        
+        sp.innerText = "inserção"
+        b1.innerText = "Cadastrar"
+        b2.innerText = "Limpar"
+    }    
 }
 
 function insereModos(summonersRift, aram, modosRotativos) {

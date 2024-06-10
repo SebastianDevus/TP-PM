@@ -22,11 +22,15 @@
     </nav>
 
     <div class="container">
+        <div class="row mt-4"><h4 style="font-weight: bold;">
+            Modo: <span id="spanModo">inserção</span>
+        </h4></div>
+
         <div class="row">
             <div class="container">
 
                 <form action="" class="" id="form" novalidate>
-                    <div class="row mt-4 d-flex align-items-end">
+                    <div class="row mt-1 d-flex align-items-end">
                         <div class="col-6">
                             <label class="form-label" for="inputNome">Qual é o seu Riot ID? </label>
                             <input class="form-control" type="text" id="inputNome" name="riotID"
@@ -113,8 +117,8 @@
                         <div class="col-2">
                             <div class="btn-group" role="group" aria-label="Grupo de botões. 2 botões
                             dentro">
-                                <button class="btn btn-success mt-2" type="submit">Enviar</button>
-                                <button class="btn btn-danger mt-2" type="reset">Limpar</button>
+                                <button class="btn btn-success mt-2" type="submit" id="botaoSubmit">Cadastrar</button>
+                                <button class="btn btn-danger mt-2" type="reset" id="botaoReset">Limpar</button>
                             </div>
                         </div>
                     </div>

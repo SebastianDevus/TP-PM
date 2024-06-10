@@ -1,36 +1,20 @@
 import { campeoes, campeoesOption, ranks, ranksOption, rotas, rotasOption } from "./modulos/exportsGerais.js";
 import { alteraVisual, alteraVisualChecks, validaForm, validaCadastro, fazNovoCadastro, 
-        adicionaOptions, habilitaSelects, carregaTabela, preencheFormEdicao } from "./modulos/exportsFuncoes.js"
+        adicionaOptions, habilitaSelects, carregaTabela, preencheFormEdicao, mudaModoVisual } from "./modulos/exportsFuncoes.js"
 
-// Arquivo principal. Criador de eventListeners
-
+// variável global
+var modoEdicao = false
 
 addEventListener("DOMContentLoaded", () => {
     // Coisas da tabela
     const corpoTabela = document.getElementById("corpoTabela")
     const temp = document.querySelector("#template")
-
+    const spanModo = document.getElementById("spanModo")
+    const botaoSubmit = document.getElementById("botaoSubmit")
+    const botaoReset = document.getElementById("botaoReset")
     
     corpoTabela.onload = carregaTabela(corpoTabela, temp)
-    
-    let botoesEdita = corpoTabela.querySelectorAll(".botaoEdita")
-    let botoesExclui = corpoTabela.querySelectorAll(".botaoExclui")
-    let idOriginal
-
-    botoesEdita.forEach(elm => {
-        elm.addEventListener("click", () => {
-            preencheFormEdicao(elm.parentElement.parentElement, form.inputNome, form.inputComeco, 
-                form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
-                form.checkSummoner, form.checkAram, form.checkRotativos)
-            
-            idOriginal = form.inputNome.value
-        })
-    })
-    botoesExclui.forEach(elm => {
-        elm.addEventListener("click", () => {
-            alert("Exclui")
-        })
-    })
+    adicionaEventListeners(corpoTabela)
 
     // Coisas do form
     const form = document.getElementById("form")
@@ -75,4 +59,31 @@ addEventListener("DOMContentLoaded", () => {
         alteraVisualChecks(form.checkSummoner, form.checkAram, form.checkRotativos, feedbackChecks)
         carregaTabela(corpoTabela, temp)
     })
+
+    form.addEventListener("reset", () => {
+        if (modoEdicao) {
+            modoEdicao = false
+            mudaModoVisual(spanModo, botaoSubmit, botaoReset, false)
+        }
+    })
 })
+
+function adicionaEventListeners(tabela) {
+    let botoesEdita = tabela.querySelectorAll(".botaoEdita")
+    let botoesExclui = tabela.querySelectorAll(".botaoExclui")
+
+    botoesEdita.forEach(elm => {
+        elm.addEventListener("click", () => {
+            preencheFormEdicao(elm.parentElement.parentElement, form.inputNome, form.inputComeco, 
+                form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
+                form.checkSummoner, form.checkAram, form.checkRotativos)
+            modoEdicao = true
+            mudaModoVisual(spanModo, botaoSubmit, botaoReset, modoEdicao)
+        })
+    })
+    botoesExclui.forEach(elm => {
+        elm.addEventListener("click", () => {
+            alert("Exclui")
+        })
+    })
+}
