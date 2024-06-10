@@ -6,14 +6,31 @@ import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro,
 
 
 addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form")
-    const feedbackChecks = document.getElementById("feedbackChecks")
+    // Coisas da tabela
     const corpoTabela = document.getElementById("corpoTabela")
     const temp = document.querySelector("#template")
 
     
     corpoTabela.onload = carregaTabela(corpoTabela, campeoes, campeoesOption,
         rotas, rotasOption, ranks, ranksOption, temp)
+    
+    let botoesEdita = corpoTabela.querySelectorAll(".botaoEdita")
+    let botoesExclui = corpoTabela.querySelectorAll(".botaoExclui")
+
+    botoesEdita.forEach(elm => {
+        elm.addEventListener("click", () => {
+            alert("Edita")
+        })
+    })
+    botoesExclui.forEach(elm => {
+        elm.addEventListener("click", () => {
+            alert("Exclui")
+        })
+    })
+
+    // Coisas do form
+    const form = document.getElementById("form")
+    const feedbackChecks = document.getElementById("feedbackChecks")
 
     adicionaOptions(form.inputMain, campeoes, campeoesOption)
     adicionaOptions(form.inputOdeia, campeoes, campeoesOption)
