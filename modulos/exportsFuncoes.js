@@ -19,6 +19,17 @@ export function validaForm(form) {
     return validade
 }
 
+export function validaCadastro(id) {
+    let vet = JSON.parse(localStorage.getItem("jogador")) || []
+    let validade = true
+    vet.forEach(elm => {
+        if (elm.riotID == id) {
+            validade = false
+        }
+    })
+    return validade
+}
+
 export function alteraVisual(input) {
     if (input.checkValidity()) {
         input.classList.remove("is-invalid")
@@ -60,6 +71,15 @@ export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
     vet.push(jogador)
     localStorage.setItem("jogador", JSON.stringify(vet))
     alert("Cadastrado com sucesso!")
+}
+
+export function alteraCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3, pos) {
+    let vet = JSON.parse(localStorage.getItem("jogador")) || []
+    let jogador = new Jogador(i1.value, i2.value, i3.value, i4.value, i5.value,
+        insereModos(c1.checked, c2.checked, c3.checked), i6.value, i7.value)
+    
+    localStorage.setItem("jogador", JSON.stringify(vet))
+    alert("Cadastro alterado com sucesso!")
 }
 
 export function adicionaOptions(s, v1, v2) {

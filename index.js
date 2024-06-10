@@ -1,5 +1,5 @@
 import { campeoes, campeoesOption, ranks, ranksOption, rotas, rotasOption } from "./modulos/exportsGerais.js";
-import { alteraVisual, alteraVisualChecks, validaForm, fazNovoCadastro, 
+import { alteraVisual, alteraVisualChecks, validaForm, validaCadastro, fazNovoCadastro, 
         adicionaOptions, habilitaSelects, carregaTabela } from "./modulos/exportsFuncoes.js"
 
 // Arquivo principal. Criador de eventListeners
@@ -55,9 +55,13 @@ addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (e) => {
         e.preventDefault()
         if (validaForm(form)) {
-            fazNovoCadastro(form.inputNome, form.inputComeco, form.inputNivel,
-                form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
-                form.checkSummoner, form.checkAram, form.checkRotativos)          
+            if (validaCadastro(form.inputNome.value)) {
+                fazNovoCadastro(form.inputNome, form.inputComeco, form.inputNivel,
+                    form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
+                    form.checkSummoner, form.checkAram, form.checkRotativos)          
+            } else {
+                alert("ID já cadastrado, entre em modo de edição para alterar dados")
+            }
         } else {
             alert("Dados inválidos!")
         }
