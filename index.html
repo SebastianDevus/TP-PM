@@ -95,14 +95,7 @@
                     <div class="row mt-4 d-flex align-items-end">
                         <div class="col-6">
                             <label class="form-label" for="inputRota">Qual é a sua rota principal? </label>
-                            <select class="form-select" name="rota" id="inputRota" disabled>
-                                <!-- <option value="n">Não tenho</option>
-                                <option value="t">Topo (Top)</option>
-                                <option value="j">Selva (Jungle)</option>
-                                <option value="m">Meio (Mid)</option>
-                                <option value="a">Atirador (ADC)</option>
-                                <option value="s">Suporte (Sup)</option> -->
-                            </select>
+                            <select class="form-select" name="rota" id="inputRota" disabled></select>
                             <div class="invalid-feedback">
                                 Valor inválido!
                             </div>
@@ -110,19 +103,7 @@
 
                         <div class="col-6">
                             <label class="form-label" for="inputRank">Qual o seu rank?</label>
-                            <select class="form-select" name="rank" id="inputRank" disabled>
-                                <!-- <option value="ne">Nenhum</option>
-                                <option value="fe">Ferro</option>
-                                <option value="br">Bronze</option>
-                                <option value="pr">Prata</option>
-                                <option value="ou">Ouro</option>
-                                <option value="pl">Platina</option>
-                                <option value="es">Esmeralda</option>
-                                <option value="di">Diamante</option>
-                                <option value="me">Mestre</option>
-                                <option value="gm">Grão-Mestre</option>
-                                <option value="df">Desafiante</option> -->
-                            </select>
+                            <select class="form-select" name="rank" id="inputRank" disabled></select>
                             <div class="invalid-feedback">
                                 Valor inválido!
                             </div>
@@ -142,31 +123,30 @@
         </div>
     </div>
 
-    <div class="table-responsive mt-4 mx-5">
-        <!-- <div class="container" style="margin-left: 0px;"> -->
-            <table class="table table-sm table-bordered">
+    <div class="table-responsive my-4 mx-auto">
+        <!-- <div class="container mt-4 mx-auto"> -->
+            <table class="table table-sm table-bordered table-hover w-auto m-auto">
+                <caption class="caption-top"><h2>Dados inseridos:</h2></caption>
                 <thead>
-                    <tr>
-                        <th>Riot ID</th>
-                        <th>Data de criação</th>
-                        <th>Nível</th>
-                        <th>Main</th>
-                        <th>Odeia</th>
-                        <th>Modos</th>
-                        <th>Rota Main</th>
-                        <th>Rank</th>
-                        <th>Ed</th>
-                        <th>EX</th>
+                    <tr class="text-center">
+                        <th class="bg-black">Riot ID</th>
+                        <th class="bg-black">Data de criação</th>
+                        <th class="bg-black">Nível</th>
+                        <th class="bg-black">Main</th>
+                        <th class="bg-black">Odeia</th>
+                        <th class="bg-black">Modos</th>
+                        <th class="bg-black">Rota Main</th>
+                        <th class="bg-black">Rank</th>
+                        <th class="bg-black"></th>
+                        <th class="bg-black"></th>
                     </tr>
                 </thead>
                 <tbody class="p-0 align-middle" id="corpoTabela">
-                  
+
                 </tbody>
             </table>
         <!-- </div> -->
     </div>
-
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -174,3 +154,8 @@
 </body>
 
 </html>
+
+<template id="template">
+    <td><button class="btn btn-warning botaoEdita">Editar</button></td>
+    <td><button class="btn btn-danger botaoExclui">Excluir</button></td>
+</template>

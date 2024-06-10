@@ -9,8 +9,11 @@ addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form")
     const feedbackChecks = document.getElementById("feedbackChecks")
     const corpoTabela = document.getElementById("corpoTabela")
-    corpoTabela.onload = carregaTabela(corpoTabela, campeoes,
-        campeoesOption, rotas, rotasOption, ranks, ranksOption)
+    const temp = document.querySelector("#template")
+
+    
+    corpoTabela.onload = carregaTabela(corpoTabela, campeoes, campeoesOption,
+        rotas, rotasOption, ranks, ranksOption, temp)
 
     adicionaOptions(form.inputMain, campeoes, campeoesOption)
     adicionaOptions(form.inputOdeia, campeoes, campeoesOption)
@@ -45,5 +48,7 @@ addEventListener("DOMContentLoaded", () => {
             alteraVisual(input)
         })
         alteraVisualChecks(form.checkSummoner, form.checkAram, form.checkRotativos, feedbackChecks)
+        corpoTabela.replaceChildren()
+        carregaTabela(corpoTabela, campeoes, campeoesOption, rotas, rotasOption, ranks, ranksOption, temp)
     })
 })

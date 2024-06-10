@@ -83,11 +83,12 @@ export function habilitaSelects(c, s1, s2) {
     }
 }
 
-export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2) { 
+export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2, temp) { 
     // vc = vetor campeao, vl = vetor lane (lane = rota), vr = vetor rank
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
     vet.forEach(elm => {
         let linha = document.createElement("tr")
+        // linha.classList.add("text-center")
         for (let index = 0; index < Object.keys(elm).length; index++) {
             let coluna = document.createElement("td")
             switch (index) {
@@ -112,6 +113,7 @@ export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2) {
                     break
             
                 case 5:
+                    coluna.style.whiteSpace = "nowrap"
                     if (elm.modos.includes("SR")) {
                         coluna.innerHTML += "Summoner's Rift <br>"
                     }
@@ -136,6 +138,8 @@ export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2) {
             }
             linha.appendChild(coluna)
         }
+        linha.appendChild(temp.content.cloneNode(true))
+        
         tabela.appendChild(linha)
     });
 }
