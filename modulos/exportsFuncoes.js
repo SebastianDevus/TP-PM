@@ -1,4 +1,4 @@
-import { Jogador } from "./exportsGerais.js";
+import { Jogador, campeoes, campeoesOption, rotas, rotasOption, ranks, ranksOption } from "./exportsGerais.js";
 
 export function validaForm(form) {
     let validade = true
@@ -103,7 +103,8 @@ export function habilitaSelects(c, s1, s2) {
     }
 }
 
-export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2, temp) { 
+export function carregaTabela(tabela, temp) { 
+    tabela.replaceChildren()
     // vc = vetor campeao, vl = vetor lane (lane = rota), vr = vetor rank
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
     vet.forEach(elm => {
@@ -125,32 +126,32 @@ export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2, temp) {
                     break
             
                 case 3:
-                    coluna.innerHTML = vc1[vc2.indexOf(elm.campeaoMain)]
+                    coluna.innerHTML = campeoes[campeoesOption.indexOf(elm.campeaoMain)]
                     break
             
                 case 4:
-                    coluna.innerHTML = vc1[vc2.indexOf(elm.campeaoOdiado)]
+                    coluna.innerHTML = campeoes[campeoesOption.indexOf(elm.campeaoOdiado)]
                     break
             
                 case 5:
                     coluna.style.whiteSpace = "nowrap"
                     if (elm.modos.includes("SR")) {
-                        coluna.innerHTML += "Summoner's Rift <br>"
+                        coluna.innerHTML += "<span id='SR'>Summoner's Rift</span> <br>"
                     }
                     if (elm.modos.includes("ARAM")) {
-                        coluna.innerHTML += "ARAM <br>"
+                        coluna.innerHTML += "<span id='ARAM'>ARAM</span> <br>"
                     }
                     if (elm.modos.includes("MR")) {
-                        coluna.innerHTML += "Modos Rotativos <br>"
+                        coluna.innerHTML += "<span id='MR'>Modos Rotativos</span> <br>"
                     }
                     break
             
                 case 6:
-                    coluna.innerHTML = vl1[vl2.indexOf(elm.rotaMain)]
+                    coluna.innerHTML = rotas[rotasOption.indexOf(elm.rotaMain)]
                     break
             
                 case 7:
-                    coluna.innerHTML = vr1[vr2.indexOf(elm.rank)]
+                    coluna.innerHTML = ranks[ranksOption.indexOf(elm.rank)]
 
                     break
                 default:
@@ -162,6 +163,56 @@ export function carregaTabela(tabela, vc1, vc2, vl1, vl2, vr1, vr2, temp) {
         
         tabela.appendChild(linha)
     });
+}
+
+export function preencheFormEdicao(tr, i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
+    let tds = tr.children
+    for (let index = 0; index < tds.length; index++) {
+        const filho = tds[index];
+        switch (index) {
+            case 0:
+                i1.value = filho.innerText
+                break
+            case 1:
+                i2.value = filho.innerText                
+                break
+            case 2:
+                i3.value = filho.innerText
+                break
+            case 3:
+                i4.value = campeoesOption[campeoes.indexOf(filho.innerText)]
+                break
+            case 4:
+                i5.value = campeoesOption[campeoes.indexOf(filho.innerText)]
+                break
+            case 5:
+                if (filho.querySelector("#SR") != null) {
+                    c1.checked = true
+                } else {
+                    c1.checked = false
+                }
+                if (filho.querySelector("#ARAM") != null) {
+                    c2.checked = true
+                } else {
+                    c2.checked = false
+                }
+                if (filho.querySelector("#MR") != null) {
+                    c3.checked = true
+                } else {
+                    c3.checked = false
+                }
+                break
+            case 6:
+                i6.value = rotasOption[rotas.indexOf(filho.innerText)]
+                break
+            case 7:
+                i7.value = ranksOption[ranks.indexOf(filho.innerText)]
+                break
+        
+            default:
+                break
+        }
+    }
 }
 
 function insereModos(summonersRift, aram, modosRotativos) {

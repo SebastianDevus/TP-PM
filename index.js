@@ -1,6 +1,6 @@
 import { campeoes, campeoesOption, ranks, ranksOption, rotas, rotasOption } from "./modulos/exportsGerais.js";
 import { alteraVisual, alteraVisualChecks, validaForm, validaCadastro, fazNovoCadastro, 
-        adicionaOptions, habilitaSelects, carregaTabela } from "./modulos/exportsFuncoes.js"
+        adicionaOptions, habilitaSelects, carregaTabela, preencheFormEdicao } from "./modulos/exportsFuncoes.js"
 
 // Arquivo principal. Criador de eventListeners
 
@@ -11,15 +11,19 @@ addEventListener("DOMContentLoaded", () => {
     const temp = document.querySelector("#template")
 
     
-    corpoTabela.onload = carregaTabela(corpoTabela, campeoes, campeoesOption,
-        rotas, rotasOption, ranks, ranksOption, temp)
+    corpoTabela.onload = carregaTabela(corpoTabela, temp)
     
     let botoesEdita = corpoTabela.querySelectorAll(".botaoEdita")
     let botoesExclui = corpoTabela.querySelectorAll(".botaoExclui")
+    let idOriginal
 
     botoesEdita.forEach(elm => {
         elm.addEventListener("click", () => {
-            alert("Edita")
+            preencheFormEdicao(elm.parentElement.parentElement, form.inputNome, form.inputComeco, 
+                form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
+                form.checkSummoner, form.checkAram, form.checkRotativos)
+            
+            idOriginal = form.inputNome.value
         })
     })
     botoesExclui.forEach(elm => {
@@ -69,7 +73,6 @@ addEventListener("DOMContentLoaded", () => {
             alteraVisual(input)
         })
         alteraVisualChecks(form.checkSummoner, form.checkAram, form.checkRotativos, feedbackChecks)
-        corpoTabela.replaceChildren()
-        carregaTabela(corpoTabela, campeoes, campeoesOption, rotas, rotasOption, ranks, ranksOption, temp)
+        carregaTabela(corpoTabela, temp)
     })
 })
