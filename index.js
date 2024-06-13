@@ -54,15 +54,20 @@ addEventListener("DOMContentLoaded", () => {
                     carregaTabela(corpoTabela, form, divModo)       
                 } else {
                     alert("ID já cadastrado, entre em modo de edição para alterar dados")
-                } 
+                }
             } else {
-                fazCadastro(form.inputNome, form.inputComeco, form.inputNivel,
-                    form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
-                    form.checkSummoner, form.checkAram, form.checkRotativos, 2,
-                    divModo.firstElementChild.lastElementChild.value) 
-                carregaTabela(corpoTabela, form, divModo) 
-                mudaModoForm(divModo, botaoSubmit, botaoReset, false)
-                form.reset() 
+                if (validaCadastro(form.inputNome.value, divModo.querySelector("#idOriginal").value)) {
+                    fazCadastro(form.inputNome, form.inputComeco, form.inputNivel,
+                        form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
+                        form.checkSummoner, form.checkAram, form.checkRotativos, 2,
+                        divModo.firstElementChild.lastElementChild.value) 
+                    carregaTabela(corpoTabela, form, divModo) 
+                    mudaModoForm(divModo, botaoSubmit, botaoReset, false)
+                    form.reset() 
+                } else {
+                    alert("ID já cadastrado, entre em modo de edição para alterar dados")
+                }
+                
             }
             
         } else {

@@ -19,12 +19,14 @@ export function validaForm(form) {
     return validade
 }
 
-export function validaCadastro(id) {
+export function validaCadastro(id, idOr = "") {
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
     let validade = true
     vet.forEach(elm => {
         if (elm.riotID == id) {
-            validade = false
+            if (elm.riotID != idOr) {
+                validade = false
+            }
         }
     })
     return validade
@@ -175,7 +177,7 @@ export function carregaTabela(tabela, form, d) {
                 form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
                 form.checkSummoner, form.checkAram, form.checkRotativos)
             mudaModoForm(d, botaoSubmit, botaoReset, true)
-            d.firstElementChild.lastElementChild.value = btnEd.parentElement.parentElement.firstElementChild.innerText
+            d.querySelector("#idOriginal").value = btnEd.parentElement.parentElement.firstElementChild.innerText
         })
     
         btnEx.addEventListener("click", () => {
