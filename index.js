@@ -56,11 +56,13 @@ addEventListener("DOMContentLoaded", () => {
                     alert("ID já cadastrado, entre em modo de edição para alterar dados")
                 } 
             } else {
-                alert("deu M")
                 fazCadastro(form.inputNome, form.inputComeco, form.inputNivel,
                     form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
-                    form.checkSummoner, form.checkAram, form.checkRotativos, 2) 
-                carregaTabela(corpoTabela, form, divModo)  
+                    form.checkSummoner, form.checkAram, form.checkRotativos, 2,
+                    divModo.firstElementChild.lastElementChild.value) 
+                carregaTabela(corpoTabela, form, divModo) 
+                mudaModoForm(divModo, botaoSubmit, botaoReset, false)
+                form.reset() 
             }
             
         } else {
@@ -70,6 +72,7 @@ addEventListener("DOMContentLoaded", () => {
             alteraVisual(input)
         })
         alteraVisualChecks(form.checkSummoner, form.checkAram, form.checkRotativos, feedbackChecks)
+        form.checkSummoner.dispatchEvent(new Event("change"))
     })
 
     form.addEventListener("reset", (e) => {

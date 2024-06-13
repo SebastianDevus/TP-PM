@@ -72,7 +72,7 @@ export function fazCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3, op, id = "")
     if (op == 1) {
         vet.push(jogador)
     } else {
-        vet[vet.indexOf(id)] = jogador
+        vet[vet.findIndex(j => j.riotID == id)] = jogador
     }    
     localStorage.setItem("jogador", JSON.stringify(vet))
     alert("Cadastrado com sucesso!")
@@ -175,6 +175,7 @@ export function carregaTabela(tabela, form, d) {
                 form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
                 form.checkSummoner, form.checkAram, form.checkRotativos)
             mudaModoForm(d, botaoSubmit, botaoReset, true)
+            d.firstElementChild.lastElementChild.value = btnEd.parentElement.parentElement.firstElementChild.innerText
         })
     
         btnEx.addEventListener("click", () => {
