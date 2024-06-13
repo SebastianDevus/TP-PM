@@ -64,22 +64,25 @@ export function alteraVisualChecks(c1, c2, c3, cd) {
     }
 }
 
-export function fazNovoCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
+// op = operação. 1 = cadastra, 2 = edita
+export function fazCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3, op, id = "") {
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
     let jogador = new Jogador(i1.value, i2.value, i3.value, i4.value, i5.value,
         insereModos(c1.checked, c2.checked, c3.checked), i6.value, i7.value)
-    vet.push(jogador)
+    if (op == 1) {
+        vet.push(jogador)
+    } else {
+        vet[vet.indexOf(id)] = jogador
+    }    
     localStorage.setItem("jogador", JSON.stringify(vet))
     alert("Cadastrado com sucesso!")
 }
 
-export function alteraCadastro(i1, i2, i3, i4, i5, i6, i7, c1, c2, c3, pos) {
+export function excluiCadastro(id) {
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
-    let jogador = new Jogador(i1.value, i2.value, i3.value, i4.value, i5.value,
-        insereModos(c1.checked, c2.checked, c3.checked), i6.value, i7.value)
-    
+    vet.splice(vet.findIndex(j => j.riotID == id), 1)
     localStorage.setItem("jogador", JSON.stringify(vet))
-    alert("Cadastro alterado com sucesso!")
+    alert("Cadastro excluído com sucesso!")
 }
 
 export function adicionaOptions(s, v1, v2) {
@@ -103,13 +106,15 @@ export function habilitaSelects(c, s1, s2) {
     }
 }
 
-export function carregaTabela(tabela, temp) { 
+export function carregaTabela(tabela, form, d) { 
+    let temp1 = document.createElement("template")
+    temp1.innerHTML = '<td><button class="btn btn-warning botaoEdita">Editar</button></td>'
+    let temp2 = document.createElement("template")
+    temp2.innerHTML = '<td><button class="btn btn-danger botaoExclui">Excluir</button></td>'
     tabela.replaceChildren()
-    // vc = vetor campeao, vl = vetor lane (lane = rota), vr = vetor rank
     let vet = JSON.parse(localStorage.getItem("jogador")) || []
     vet.forEach(elm => {
         let linha = document.createElement("tr")
-        // linha.classList.add("text-center")
         for (let index = 0; index < Object.keys(elm).length; index++) {
             let coluna = document.createElement("td")
             switch (index) {
@@ -159,8 +164,26 @@ export function carregaTabela(tabela, temp) {
             }
             linha.appendChild(coluna)
         }
-        linha.appendChild(temp.content.cloneNode(true))
+        linha.appendChild(temp1.content.cloneNode(true))
+        linha.appendChild(temp2.content.cloneNode(true))
         tabela.appendChild(linha)
+        
+        let btnEd = linha.lastChild.previousSibling.firstChild
+        let btnEx = linha.lastChild.firstChild
+        btnEd.addEventListener("click", () => {
+            preencheFormEdicao(btnEd.parentElement.parentElement, form.inputNome, form.inputComeco, 
+                form.inputNivel, form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
+                form.checkSummoner, form.checkAram, form.checkRotativos)
+            mudaModoForm(d, botaoSubmit, botaoReset, true)
+        })
+    
+        btnEx.addEventListener("click", () => {
+            if (confirm("Excluir cadastro?")) {
+                let id = btnEx.parentElement.parentElement.firstChild.innerText
+                excluiCadastro(id)
+                carregaTabela(corpoTabela)   
+            }
+        })
     });
 }
 
@@ -231,13 +254,20 @@ export function preencheFormEdicao(tr, i1, i2, i3, i4, i5, i6, i7, c1, c2, c3) {
     }
 }
 
-export function mudaModoVisual(sp, b1, b2, edicao) {
+export function mudaModoForm(d, b1, b2, edicao) {
+    let sp = d.querySelector("#spanModo")
+    let i1 = d.querySelector("#modoForm")
+    let i2 = d.querySelector("#idOriginal")
     if (edicao) {
         sp.innerText = "edição"
+        i1.value = 2
+        i2.value = "aaaaaaa"
         b1.innerText = "Editar"
         b2.innerText = "Cancelar"
     } else {        
         sp.innerText = "inserção"
+        i1.value = 1
+        i2.value = "bbbbbb"
         b1.innerText = "Cadastrar"
         b2.innerText = "Limpar"
     }    

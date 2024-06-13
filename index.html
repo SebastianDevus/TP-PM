@@ -22,9 +22,13 @@
     </nav>
 
     <div class="container">
-        <div class="row mt-4"><h4 style="font-weight: bold;">
-            Modo: <span id="spanModo">inserção</span>
-        </h4></div>
+        <div class="row mt-4" id="divModo">
+            <h4 style="font-weight: bold;">
+                Modo: <span id="spanModo">inserção</span>
+                <input type="number" id="modoForm" value="1" hidden>
+                <input type="text" id="idOriginal" hidden>
+            </h4>
+        </div>
 
         <div class="row">
             <div class="container">
@@ -128,29 +132,35 @@
     </div>
 
     <div class="table-responsive my-4 mx-auto">
-        <!-- <div class="container mt-4 mx-auto"> -->
-            <table class="table table-sm table-bordered table-hover w-auto m-auto">
-                <caption class="caption-top"><h2>Dados inseridos:</h2></caption>
-                <thead>
-                    <tr class="text-center">
-                        <th class="bg-black">Riot ID</th>
-                        <th class="bg-black">Data de criação</th>
-                        <th class="bg-black">Nível</th>
-                        <th class="bg-black">Main</th>
-                        <th class="bg-black">Odeia</th>
-                        <th class="bg-black">Modos</th>
-                        <th class="bg-black">Rota Main</th>
-                        <th class="bg-black">Rank</th>
-                        <th class="bg-black"></th>
-                        <th class="bg-black"></th>
-                    </tr>
-                </thead>
-                <tbody class="p-0 align-middle" id="corpoTabela">
-
-                </tbody>
-            </table>
-        <!-- </div> -->
+        <table class="table table-sm table-bordered table-hover w-auto m-auto">
+            <caption class="caption-top"><h2>Dados inseridos:</h2></caption>
+            
+            <thead>
+                <tr class="text-center">
+                    <th class="bg-black">Riot ID</th>
+                    <th class="bg-black">Data de criação</th>
+                    <th class="bg-black">Nível</th>
+                    <th class="bg-black">Main</th>
+                    <th class="bg-black">Odeia</th>
+                    <th class="bg-black">Modos</th>
+                    <th class="bg-black">Rota Main</th>
+                    <th class="bg-black">Rank</th>
+                    <th class="bg-black"></th>
+                    <th class="bg-black"></th>
+                </tr>
+            </thead>
+            <tbody class="p-0 align-middle" id="corpoTabela">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10" class="text-end">
+                        <button class="btn btn-danger" id="botaoLimpa">Limpar Dados</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -158,8 +168,3 @@
 </body>
 
 </html>
-
-<template id="template">
-    <td><button class="btn btn-warning botaoEdita">Editar</button></td>
-    <td><button class="btn btn-danger botaoExclui">Excluir</button></td>
-</template>
