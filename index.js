@@ -51,7 +51,8 @@ addEventListener("DOMContentLoaded", () => {
                     fazCadastro(form.inputNome, form.inputComeco, form.inputNivel,
                         form.inputMain, form.inputOdeia, form.inputRota, form.inputRank,
                         form.checkSummoner, form.checkAram, form.checkRotativos, 1)   
-                    carregaTabela(corpoTabela, form, divModo)       
+                    carregaTabela(corpoTabela, form, divModo)    
+                    form.reset()   
                 } else {
                     alert("ID já cadastrado, entre em modo de edição para alterar dados")
                 }
